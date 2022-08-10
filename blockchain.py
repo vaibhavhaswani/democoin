@@ -2,7 +2,6 @@
 
 from datetime import  datetime
 import hashlib
-from flask import Flask, jsonify
 import json
 
 
@@ -44,7 +43,7 @@ class Blockchain:
         return self.chain[-1]
 
 
-    def get_pow(self,prev_proof):
+    def get_proof(self,prev_proof):
         '''returns proof of work value or nonce value'''
         new_proof=0
         valid_proof=False
