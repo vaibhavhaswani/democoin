@@ -65,13 +65,13 @@ class Blockchain:
         return hashlib.sha256(encoded_block).hexdigest() 
     
 
-    def is_chain_valid(self,chain):
+    def is_chain_valid(self):
 
-        prev_block=chain[0]
+        prev_block=self.chain[0]
         block_inx=1
 
-        while block_inx<len(chain):
-            block=chain[block_inx]
+        while block_inx<len(self.chain):
+            block=self.chain[block_inx]
             if block["prev_hash"]!=self.get_hash(prev_block):
                 return False
 
@@ -85,3 +85,6 @@ class Blockchain:
             prev_block=block
         
         return True
+
+    def __len__(self):
+        return len(self.chain)
